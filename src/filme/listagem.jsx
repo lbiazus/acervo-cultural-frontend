@@ -1,0 +1,43 @@
+import '../assets/css/listagem.css';
+import '../assets/css/tabela.css'
+
+const Listagem = props => {
+    const { filmes } = props;
+
+    /*if (filmes.length === 0) {
+        return <span>Não existem filmes cadastrados.</span>
+    }*/
+
+    return (
+        <>
+            {(filmes.length === 0) && <span>Não existem filmes cadastrados.</span>}
+            {filmes.length > 0 && 
+                <div className='listagem'>
+                    <table className='tabela-filmes'>
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Subtitulo</th>
+                                <th>Diretor</th>
+                                <th className='acoes' colSpan={2}>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filmes.map(filme => (
+                                <tr key={filme.id}>
+                                    <td>{filme.titulo}</td>
+                                    <td>{filme.subtitulo}</td>
+                                    <td>{filme.diretor}</td>
+                                    <td className='acoes'><button>Editar</button></td>
+                                    <td className='acoes'><button>Excluir</button></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </>
+    )
+}
+
+export default Listagem;

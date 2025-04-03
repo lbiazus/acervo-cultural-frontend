@@ -2,7 +2,7 @@ import '../assets/css/listagem.css';
 import '../assets/css/tabela.css'
 
 const Listagem = props => {
-    const { filmes } = props;
+    const { filmes, editar, excluir } = props;
 
     /*if (filmes.length === 0) {
         return <span>Não existem filmes cadastrados.</span>
@@ -28,8 +28,8 @@ const Listagem = props => {
                                     <td>{filme.titulo}</td>
                                     <td>{filme.subtitulo}</td>
                                     <td>{filme.diretor}</td>
-                                    <td className='acoes'><button>Editar</button></td>
-                                    <td className='acoes'><button>Excluir</button></td>
+                                    <td className='acoes'><button onClick={() => editar(filme)}>Editar</button></td>
+                                    <td className='acoes'><button onClick={() => excluir(filme)}>Excluir</button></td>
                                 </tr>
                             ))}
                         </tbody>

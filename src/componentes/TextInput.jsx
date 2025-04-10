@@ -1,11 +1,13 @@
 const TextInput = props => {
-    const {label, value, handleChange} = props; 
+    const {label, name, value, handleChange, handleBlur} = props; 
 
     return (
         <div className='campo-formulario'>
             <label>{label}:</label><br/>
             <input type='text' 
-                onBlur={handleChange} 
+                name={name}
+                onChange={handleChange}
+                onBlur={handleBlur} 
                 className='input-formulario'
                 defaultValue={value}/>
         </div>

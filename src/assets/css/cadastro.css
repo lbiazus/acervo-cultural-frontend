@@ -20,3 +20,8 @@
     margin-top: 2px;
     min-width: 50%;
 }
+
+.erro-campo-formulario {
+    color: red;
+    margin-left: 10px;
+}

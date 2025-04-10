@@ -30,13 +30,13 @@ const PaginaFilme = props => {
         console.log("Filme a Salvar: ", filmeASalvar);
         if (filmeASalvar.id) {
             console.log("Filme em Atualização")
-            await atualizarFilme(filme);
+            await atualizarFilme(filmeASalvar);
             carregarFilmes();
             return;
         }
         
         console.log("Filme em Inserção")
-        await inserirFilme(filme);
+        await inserirFilme(filmeASalvar);
         carregarFilmes();
         limparFormulario();
     }

@@ -9,7 +9,7 @@ const TextInput = props => {
                 onChange={handleChange}
                 onBlur={handleBlur} 
                 className='input-formulario'
-                defaultValue={value}/>
+                value={value}/>
         </div>
     )
 }

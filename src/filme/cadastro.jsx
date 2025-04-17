@@ -4,6 +4,13 @@ import TextInput from '../componentes/TextInput';
 import { useEffect } from 'react';
 //import * as yup from 'yup';
 import { object, string } from 'yup';
+import { Button, Card, Grid, TextField as MuiTextField, Paper } from '@mui/material';
+import styled from '@emotion/styled';
+
+const TextField = styled(MuiTextField)(() => ({
+    marginBottom: '20px'
+}
+))
 
 const FilmeSchema = object({
     titulo: string()
@@ -43,16 +50,66 @@ const Cadastro = props => {
     }*/
 
     return (
+                <Card>
         <FormikProvider value={formik}>
             <Form onSubmit={formik.handleSubmit}>
-                <div className="formulario">
-                    <Field name="titulo" />
-                    {/*<TextInput label="Título" 
+                <Grid container >
+                    <Grid item size={8} >
+                        <TextField label="Título"
+                            variant='outlined' 
+                            fullWidth
+                            name="titulo"
+                            value={formik.values.titulo} 
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.titulo && formik.errors.titulo}
+                            helperText={formik.touched.titulo && formik.errors.titulo}
+                        />
+                    </Grid>
+                    <Grid item size={8}>
+                        <TextField label="Subtitulo"
+                            variant='outlined' 
+                            fullWidth
+                            name="subtitulo"
+                            value={formik.values.subtitulo}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.subtitulo && formik.errors.subtitulo}
+                            helperText={formik.touched.subtitulo && formik.errors.subtitulo}
+                        />
+                    </Grid>
+                    <Grid item size={8} >
+                        <TextField label="Diretor" 
+                            variant='outlined' 
+                            fullWidth
+                            name="diretor"
+                            value={formik.values.diretor}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.diretor && formik.errors.diretor}
+                            helperText={formik.touched.diretor && formik.errors.diretor}
+                        />
+                    </Grid>
+                    <Grid item size={12}>
+                        <Grid container justifyContent='end'>
+                            <Grid item size={2}>
+                                <Button color="primary" variant='outlined' onClick={limpar}>Novo</Button>
+                            </Grid>
+                            <Grid item size={2}>
+                                <Button type='submit' color="primary" variant='contained' >Salvar</Button>
+                            </Grid>
+                            <Grid item size={1}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                
+                {/*<div className="formulario">
+                    <TextInput label="Título" 
                         name="titulo"
                         value={formik.values.titulo} 
                         handleChange={formik.handleChange}
                         handleBlur={formik.handleBlur}
-                    />*/}
+                    />
                     {formik.touched.titulo && formik.errors.titulo && 
                         <span className='erro-campo-formulario'>{formik.errors.titulo}</span>}
                     <TextInput label="Subtitulo"
@@ -73,10 +130,11 @@ const Cadastro = props => {
                         <button className='botao-formulario' onClick={limpar}>Novo</button>
                         <button type='submit' className='botao-formulario'>Salvar</button>
                     </div>
-                </div>
+                </div>*/}
             </Form>
 
         </FormikProvider>
+        </Card>
         
     )
 }

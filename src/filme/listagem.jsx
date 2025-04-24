@@ -1,6 +1,17 @@
-import { Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, ThemeProvider, createTheme, styled } from '@mui/material';
 import '../assets/css/listagem.css';
 import '../assets/css/tabela.css'
+import { lime } from '@mui/material/colors';
+
+/*const Button = styled(MuiButton)(({theme}) => ({
+    color: theme.palette.secondary.contrastText
+}))*/
+
+const tema2 = createTheme({
+    palette: {
+        primary: lime
+    }
+})
 
 const Listagem = props => {
     const { filmes, editar, excluir } = props;
@@ -10,10 +21,9 @@ const Listagem = props => {
     }*/
 
     return (
-        <>
+        <ThemeProvider theme={tema2}>
             {(filmes.length === 0) && <span>Não existem filmes cadastrados.</span>}
             {filmes.length > 0 && 
-                <div className='listagem'>
                     <TableContainer component={Card}>
                         <Table >
                             <TableHead>
@@ -30,16 +40,15 @@ const Listagem = props => {
                                         <TableCell>{filme.titulo}</TableCell>
                                         <TableCell>{filme.subtitulo}</TableCell>
                                         <TableCell>{filme.diretor}</TableCell>
-                                        <TableCell className='acoes'><button onClick={() => editar(filme)}>Editar</button></TableCell>
-                                        <TableCell className='acoes'><button onClick={() => excluir(filme)}>Excluir</button></TableCell>
+                                        <TableCell className='acoes'><Button color='secondary' variant="contained" onClick={() => editar(filme)}>Editar</Button></TableCell>
+                                        <TableCell className='acoes'><Button color="primary" variant="contained" onClick={() => excluir(filme)}>Excluir</Button></TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
-                </div>
             }
-        </>
+        </ThemeProvider>
     )
 }
 

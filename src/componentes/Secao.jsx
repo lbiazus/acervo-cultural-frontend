@@ -6,7 +6,7 @@ const Secao = props => {
     
     return (
     <div className="section">
-        <Typography variant="h4">{titulo}</Typography>
+        <Typography color="primary" variant="h4">{titulo}</Typography>
         {children}
     </div>
     )

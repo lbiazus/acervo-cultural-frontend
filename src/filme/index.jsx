@@ -5,6 +5,7 @@ import { filmes as listaFilmes } from '../util/constantes';
 import Cadastro from "./cadastro";
 import { useEffect, useState } from "react";
 import { buscarFilmes, inserirFilme, atualizarFilme, excluirFilme } from "../services/filme";
+import { useNavigate } from "react-router";
 
 const FILME_INICIAL = {
     titulo: '',
@@ -15,6 +16,8 @@ const FILME_INICIAL = {
 const PaginaFilme = props => {
     const [ filmes, setFilmes ] = useState([]);
     const [ filme, setFilme ] = useState(FILME_INICIAL);
+
+    const navigate = useNavigate();
 
     const editarFilme = filmeAEditar => {
         limparFormulario();
@@ -32,6 +35,7 @@ const PaginaFilme = props => {
             console.log("Filme em Atualização")
             await atualizarFilme(filmeASalvar);
             carregarFilmes();
+            navigate("/livro");
             return;
         }
         

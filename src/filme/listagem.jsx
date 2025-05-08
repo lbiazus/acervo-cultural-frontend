@@ -22,8 +22,8 @@ const Listagem = props => {
 
     return (
         <ThemeProvider theme={tema2}>
-            {(filmes.length === 0) && <span>Não existem filmes cadastrados.</span>}
-            {filmes.length > 0 && 
+            {(!filmes || filmes.length === 0) && <span>Não existem filmes cadastrados.</span>}
+            {filmes && filmes.length > 0 && 
                     <TableContainer component={Card}>
                         <Table >
                             <TableHead>

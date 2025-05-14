@@ -20,6 +20,11 @@ export const buscarFilmes = ()  => {
         .then(response => response.data);
 }
 
+export const buscarFilmePorId = id  => {
+    return axios.get(`http://localhost:9090/acervo/filme/${id}`)
+        .then(response => response.data);
+}
+
 export const inserirFilme = (filme)  => {
     return axios.post("http://localhost:9090/acervo/filme", filme)
         .then(response => response.data);

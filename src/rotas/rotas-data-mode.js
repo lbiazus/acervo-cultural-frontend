@@ -1,7 +1,9 @@
 import { Component } from "react";
 import App from "../App";
 import PaginaFilme from "../filme";
-import Listagem from "../filme/listagem";
+import ListagemLivro from "../livro";
+import ListagemFilme from "../filme/PaginaListagem";
+import CadastroFilme from "../filme/PaginaCadastro";
 
 const rotas = [
     {
@@ -10,11 +12,15 @@ const rotas = [
     },
     {
         path: "/filme",
-        Component: PaginaFilme,
+        Component: ListagemFilme
+    },
+    {
+        path: "/filme/cadastro/:id?",
+        Component: CadastroFilme,
     },
     {
         path: "/livro",
-        Component: Listagem,
+        Component: ListagemLivro,
     }
 ]
 

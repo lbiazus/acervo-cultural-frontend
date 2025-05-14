@@ -24,7 +24,7 @@ const FilmeSchema = object({
 })
 
 const Cadastro = props => {
-    const { filme, salvar, limpar } = props;
+    const { filme, salvar, limpar, voltar } = props;
 
     const formik = useFormik({
         initialValues: filme,
@@ -92,6 +92,9 @@ const Cadastro = props => {
                     </Grid>
                     <Grid item size={12}>
                         <Grid container justifyContent='end'>
+                            <Grid item size={2}>
+                                <Button color="primary" variant='outlined' onClick={voltar}>Voltar</Button>
+                            </Grid>
                             <Grid item size={2}>
                                 <Button color="primary" variant='outlined' onClick={limpar}>Novo</Button>
                             </Grid>
